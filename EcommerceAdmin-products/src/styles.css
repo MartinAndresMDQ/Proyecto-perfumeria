@@ -1,0 +1,63 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~ngx-toastr/toastr.css';
+
+.main-container {
+  padding: 30px;
+}
+
+.form-error {
+  color: #ff4200;
+}
+
+.remove-trash {
+  color: #ff4200;
+  cursor: pointer;
+}
+
+.remove-trash:hover {
+  color: #b10824;
+  cursor: pointer;
+}
+
+.edit-pencil {
+  color: #4CAF50;
+  cursor: pointer;
+}
+
+.edit-pencil:hover {
+  color: #21913a;
+}
+
+.mat-raised-button {
+  border-radius: 0 !important;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+.error {
+  color: red;
+}
+.error-msg {
+  display: block;
+  position: absolute;
+  font-size: 75%;
+  bottom: -2.5em;
+}
+.mat-form-field {
+  margin-bottom: 1em;
+}
+
+.page-title { /*title on every page*/
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.section-title { /*title for section*/
+  margin-bottom: 30px;
+  /*font-size: 20px;*/
+}

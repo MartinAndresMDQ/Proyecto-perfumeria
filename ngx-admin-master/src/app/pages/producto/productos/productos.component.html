@@ -1,0 +1,151 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        Productos
+      </nb-card-header>
+      <nb-card-body>
+
+        <ng-template #content let-modal>
+          <nb-card>
+            <nb-card-header>Editar Producto</nb-card-header>
+            <nb-card-body class="col-md-12">
+
+              <div class="col-md-12">
+                <kendo-textbox-container floatingLabel="Codigo">
+                  <input kendoTextBox [(ngModel)]="edit.codigo" />
+                </kendo-textbox-container>
+              </div>
+
+              <div class="col-md-12">
+                <kendo-textbox-container floatingLabel="Nombre">
+                  <input kendoTextBox [(ngModel)]="edit.nombre" />
+                </kendo-textbox-container>
+              </div>
+
+              <div class="col-md-12">
+                <kendo-textbox-container floatingLabel="Descripcion">
+                  <textarea kendoTextArea [(ngModel)]="edit.descripcion"></textarea>
+                </kendo-textbox-container>
+              </div>
+
+              <div class="col-md-12">
+                <kendo-textbox-container floatingLabel="Cantidad">
+                  <input kendoTextBox type="number" [(ngModel)]="edit.cantidad" />
+                </kendo-textbox-container>
+              </div>
+
+              <div class="col-md-12">
+                <p>Genero</p>
+                <kendo-dropdownlist [data]="listGenero" 
+                [textField]="'descripcion'"
+                [valueField]="'descripcion'"
+                [(ngModel)]="edit.genero">
+                </kendo-dropdownlist>
+              </div>
+
+
+              <div class="col-md-12">
+                <p>Tipo</p>
+                <kendo-dropdownlist [data]="listTipo"
+                [textField]="'descripcion'"
+                [valueField]="'descripcion'"
+                [(ngModel)]="edit.tipo">
+                </kendo-dropdownlist>
+              </div>
+
+              <div class="col-md-12">
+                <p>Marca</p>
+                <kendo-dropdownlist [data]="listMarca" 
+                [textField]="'nombre'"
+                [valueField]="'nombre'"
+                [(ngModel)]="edit.marca">
+                </kendo-dropdownlist>
+              </div>
+
+              <div class="col-md-12">
+                <kendo-textbox-container floatingLabel="Contenido (ml)">
+                  <input kendoTextBox type="number" [(ngModel)]="edit.contenido" />
+                </kendo-textbox-container>
+              </div>
+
+              <div class="col-md-12">
+                <kendo-textbox-container floatingLabel="Precio">
+                  <input kendoTextBox type="number" [(ngModel)]="edit.precio" />
+                </kendo-textbox-container>
+              </div>
+
+              <div class="col-md-12">
+                <kendo-textbox-container floatingLabel="Descuento">
+                  <input kendoTextBox type="number" [(ngModel)]="edit.descuento" />
+                </kendo-textbox-container>
+              </div>
+
+            </nb-card-body>
+            <nb-card-footer>
+              <button class="btn btn-danger" (click)="modal.close('Save click')">Cerrar</button>
+              <button class="btn btn-primary" (click)="Guardar()">Guardar</button>
+            </nb-card-footer>
+          </nb-card>
+        </ng-template>
+
+        <div class="row col-md-5">
+          <kendo-textbox-container style="width: 100%;" floatingLabel="Buscar...">
+            <input kendoTextBox style="width: 100%;" (keyup)='updateFilter()' [(ngModel)]="buscar" autofocus />
+          </kendo-textbox-container>
+        </div>
+        <br />
+
+        <kendo-grid #grid *ngIf="cargando" [filterable]="false" [data]="gridView" [pageSize]="pageSize" [skip]="skip"
+          [pageable]="pageable" [height]="height" [sortable]="sortable" [sort]="sort" (sortChange)="sortChange($event)"
+          [selectable]="true" (cellClick)="onEdit(content,$event)" (add)="addHandler(content,$event)" (pageChange)="pageChange($event)">
+
+          <ng-template kendoGridToolbarTemplate>
+            <button kendoGridAddCommand type="button">Agregar</button>
+          </ng-template>
+          <kendo-grid-column title="Codigo" field="codigo" [width]="150" filter="text">
+            <!-- <ng-template kendoGridCellTemplate let-dataItem>
+              <p class="text-center">
+                {{dataItem.codigo}}
+              </p>
+            </ng-template> -->
+          </kendo-grid-column>
+
+          <kendo-grid-column field="nombre" title="Nombre" [width]="200" filter="text">
+            <!-- <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+              <p class="text-center">
+                {{dataItem.nombre}}
+              </p>
+            </ng-template> -->
+          </kendo-grid-column>
+
+          <kendo-grid-column title="Descripcion" field="descripcion" filter="text">
+            <!-- <ng-template kendoGridCellTemplate let-dataItem>
+              <p class="text-center">
+                {{dataItem.descripcion }}
+              </p>
+            </ng-template> -->
+          </kendo-grid-column>
+
+          <kendo-grid-column title="Precio" field="precio" [width]="150" filter="text">
+            <!-- <ng-template kendoGridCellTemplate let-dataItem>
+              <p class="text-center">
+                {{dataItem.precio }}
+              </p>
+            </ng-template> -->
+          </kendo-grid-column>
+
+          <kendo-grid-column title="Descuento" field="descuento" [width]="150" filter="text">
+            <!-- <ng-template kendoGridCellTemplate let-dataItem>
+              <p class="text-center">
+                {{dataItem.descuento }}
+              </p>
+            </ng-template> -->
+          </kendo-grid-column>
+
+        </kendo-grid>
+
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

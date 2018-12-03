@@ -1,0 +1,71 @@
+<div class="main-container">
+  <div class="row">
+    <div class="col-12 page-title">
+      <mat-card>Product Categories</mat-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <mat-card>
+        <mat-card-title *ngIf="!edit">Add new</mat-card-title>
+        <mat-card-title *ngIf="edit">Edit</mat-card-title>
+        <mat-card-content>
+          <form [formGroup]="categoryForm" (keyup.enter)="sendFormByEnter()">
+            <mat-form-field
+              [ngClass]="{'error': categoryForm.controls['name'].errors && !categoryForm.controls['name'].pristine}"
+              color="{{categoryForm.controls['name'].errors && !categoryForm.controls['name'].pristine ? 'warn' : 'primary'}}">
+              <input type="text" matInput placeholder="Name" formControlName="name">
+              <div *ngIf="categoryForm.controls['name'].errors && !categoryForm.controls['name'].pristine"
+                   class="error-msg">
+                <div [hidden]="!categoryForm.controls['name'].errors.required">Name is required</div>
+              </div>
+            </mat-form-field>
+            <mat-form-field
+              [ngClass]="{'error': categoryForm.controls['nameEng'].errors && !categoryForm.controls['nameEng'].pristine}"
+              color="{{categoryForm.controls['nameEng'].errors && !categoryForm.controls['nameEng'].pristine ? 'warn' : 'primary'}}">
+              <input type="text" matInput placeholder="English Name" formControlName="nameEng">
+              <div *ngIf="categoryForm.controls['nameEng'].errors && !categoryForm.controls['nameEng'].pristine"
+                   class="error-msg">
+                <div [hidden]="!categoryForm.controls['nameEng'].errors.required">English Name is required</div>
+              </div>
+            </mat-form-field>
+            <mat-form-field *ngIf="!edit">
+              <mat-select placeholder="Category" formControlName="productCategoryId">
+                <mat-option *ngFor="let category of categories" [value]="category.id">
+                  {{category.name}}
+                </mat-option>
+              </mat-select>
+              <div class="error-msg">Select only if create nested category</div>
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-raised-button color="primary" (click)="addCategory()" [disabled]="categoryForm.invalid" type="submit" *ngIf="!edit">Add</button>
+          <button mat-raised-button color="primary" (click)="editCategory()" [disabled]="categoryForm.invalid" type="submit" *ngIf="edit">Edit</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="col-md-6 offset-1">
+      <mat-card>
+        <mat-card-title>Categories</mat-card-title>
+        <mat-card-content>
+          <div *ngFor="let category of categories">
+            <p class="category">
+              - {{category.name}}
+              <mat-icon class="remove-trash" (click)="deleteCategory(category.id)">delete</mat-icon>
+              <mat-icon class="edit-pencil" (click)="setEditCategory(category)">edit</mat-icon>
+            </p>
+            <div *ngFor="let children of category.productCategories">
+              <p class="sub-category">
+                - {{children.name}}
+                <mat-icon class="remove-trash" (click)="deleteCategory(children.id)">delete</mat-icon>
+                <mat-icon class="edit-pencil" (click)="setEditCategory(children)">edit</mat-icon>
+              </p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+

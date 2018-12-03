@@ -1,0 +1,166 @@
+<div class="main-container">
+  <div class="row">
+    <div class="col-12 page-title">
+      <mat-card>Products</mat-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <mat-card>
+        <mat-card-title>Nuevo</mat-card-title>
+        <mat-card-content>
+          <form [formGroup]="productForm">
+            <mat-form-field
+              [ngClass]="{'error': productForm.controls['codigo'].errors && !productForm.controls['codigo'].pristine}"
+              color="{{productForm.controls['codigo'].errors && !productForm.controls['codigo'].pristine ? 'warn' : 'primary'}}">
+              <input type="text" matInput placeholder="codigo" formControlName="codigo">
+              <div *ngIf="productForm.controls['codigo'].errors && !productForm.controls['codigo'].pristine"
+                   class="error-msg">
+                <div [hidden]="!productForm.controls['codigo'].errors.required">Codigo es requerido</div>
+              </div>
+            </mat-form-field>
+            <mat-form-field
+              [ngClass]="{'error': productForm.controls['nombre'].errors && !productForm.controls['nombre'].pristine}"
+              color="{{productForm.controls['nombre'].errors && !productForm.controls['nombre'].pristine ? 'warn' : 'primary'}}">
+              <input type="text" matInput placeholder="Nombtr" formControlName="nombre">
+              <div *ngIf="productForm.controls['nombre'].errors && !productForm.controls['nombre'].pristine"
+                   class="error-msg">
+                <div [hidden]="!productForm.controls['nombre'].errors.required">Nombre es requerido</div>
+              </div>
+            </mat-form-field>
+            
+            <mat-form-field>
+            <!-- <mat-form-field
+              [ngClass]="{'error': productForm.controls['descripcion'].errors && !productForm.controls['descripcion'].pristine}"
+              color="{{productForm.controls['descripcion'].errors && !productForm.controls['descripcion'].pristine ? 'warn' : 'primary'}}"> -->
+              <input type="text" matInput placeholder="descripcion" formControlName="descripcion">
+              <!-- <div *ngIf="productForm.controls['descripcion'].errors && !productForm.controls['descripcion'].pristine"
+                   class="error-msg">
+                <div [hidden]="!productForm.controls['descripcion'].errors.required">descripcion es requerido</div>
+              </div> -->
+            </mat-form-field>
+            <mat-form-field
+              [ngClass]="{'error': productForm.controls['cantidad'].errors && !productForm.controls['cantidad'].pristine}"
+              color="{{productForm.controls['cantidad'].errors && !productForm.controls['cantidad'].pristine ? 'warn' : 'primary'}}">
+              <input type="number" matInput placeholder="Cantidad" formControlName="cantidad">
+              <div
+                *ngIf="productForm.controls['cantidad'].errors && !productForm.controls['cantidad'].pristine"
+                class="error-msg">
+                <div [hidden]="!productForm.controls['cantidad'].errors.required">Cantidad es requerido
+                </div>
+              </div>
+            </mat-form-field>
+            
+            <mat-form-field>
+              <mat-select placeholder="genero" formControlName="genero">
+                <mat-option *ngFor="let genero of generos" [value]="genero.descripcion">
+                  {{genero.descripcion}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field>
+              <mat-select placeholder="tipo" formControlName="tipo">
+                <mat-option *ngFor="let tipo of tipos" [value]="tipo.descripcion">
+                  {{tipo.descripcion}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            
+            <mat-form-field
+              [ngClass]="{'error': productForm.controls['precio'].errors && !productForm.controls['precio'].pristine}"
+              color="{{productForm.controls['precio'].errors && !productForm.controls['precio'].pristine ? 'warn' : 'primary'}}">
+              <input type="number" matInput placeholder="Precio" formControlName="precio">
+              <div
+                *ngIf="productForm.controls['precio'].errors && !productForm.controls['precio'].pristine"
+                class="error-msg">
+                <div [hidden]="!productForm.controls['precio'].errors.required">El Precio es requerido
+                </div>
+              </div>
+            </mat-form-field>
+
+            <mat-form-field
+              [ngClass]="{'error': productForm.controls['descuento'].errors && !productForm.controls['descuento'].pristine}"
+              color="{{productForm.controls['descuento'].errors && !productForm.controls['descuento'].pristine ? 'warn' : 'primary'}}">
+              <input type="number" matInput placeholder="Descuento" formControlName="descuento">
+              <div
+                *ngIf="productForm.controls['descuento'].errors && !productForm.controls['descuento'].pristine"
+                class="error-msg">
+                <div [hidden]="!productForm.controls['descuento'].errors.required">El Descuento es requerido
+                </div>
+              </div>
+            </mat-form-field>
+
+            <mat-form-field
+              [ngClass]="{'error': productForm.controls['contenido'].errors && !productForm.controls['contenido'].pristine}"
+              color="{{productForm.controls['contenido'].errors && !productForm.controls['contenido'].pristine ? 'warn' : 'primary'}}">
+              <input type="number" matInput placeholder="Contenido (ml)" formControlName="contenido">
+              <div
+                *ngIf="productForm.controls['contenido'].errors && !productForm.controls['contenido'].pristine"
+                class="error-msg">
+                <div [hidden]="!productForm.controls['contenido'].errors.required">El Contenido es requerido
+                </div>
+              </div>
+            </mat-form-field>
+            
+            <mat-form-field>
+              <mat-select placeholder="marca" formControlName="marca">
+                <mat-option *ngFor="let marca of marcas" [value]="marca.nombre">
+                  {{marca.nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <input type="file" ngFileSelect (uploadOutput)="onUploadOutput($event)"
+                   [uploadInput]="uploadInput" name="file" multiple required>
+            <mat-progress-bar mode="determine" value="{{progress}}" *ngIf="showProgressBar"></mat-progress-bar>
+          </form>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-raised-button color="primary" [disabled]="productForm.invalid" (click)="addProduct()"
+                  type="submit">
+            Add
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="col-md-6 offset-1">
+      <mat-card>
+        <mat-card-title>Productos</mat-card-title>
+        <mat-card-content>
+          <table mat-table [dataSource]="productsTable" style="cursor: pointer;">
+            <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef> #</th>
+              <td mat-cell *matCellDef="let element; let i = index" (click)="openEditModal(element)"> {{i + 1}}</td>
+            </ng-container>
+            <ng-container matColumnDef="codigo">
+              <th mat-header-cell *matHeaderCellDef> Codigo</th>
+              <td mat-cell *matCellDef="let element" (click)="openEditModal(element)"> {{element.codigo}}</td>
+            </ng-container>
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef> Nombre</th>
+              <td mat-cell *matCellDef="let element" (click)="openEditModal(element)"> {{element.nombre}}</td>
+            </ng-container>
+            <ng-container matColumnDef="descripcion">
+              <th mat-header-cell *matHeaderCellDef> descripcion</th>
+              <td mat-cell *matCellDef="let element" (click)="openEditModal(element)"> {{element.descripcion.substr(0, 10)}}...</td>
+            </ng-container>
+            <ng-container matColumnDef="precio">
+              <th mat-header-cell *matHeaderCellDef> Precio</th>
+              <td mat-cell *matCellDef="let element" (click)="openEditModal(element)"> {{element.precio}}</td>
+            </ng-container>
+            <ng-container matColumnDef="descuento">
+              <th mat-header-cell *matHeaderCellDef> Descuento</th>
+              <td mat-cell *matCellDef="let element" (click)="openEditModal(element)"> {{element.descuento}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="productTableColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: productTableColumns;"></tr>
+          </table>
+          <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+

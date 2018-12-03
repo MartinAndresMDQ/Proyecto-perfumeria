@@ -1,0 +1,9 @@
+.category {
+  font-size: 18px;
+}
+
+.sub-category {
+  font-size: 17px;
+  margin-left: 50px;
+  line-height: 5px;
+}

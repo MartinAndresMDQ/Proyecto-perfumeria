@@ -1,0 +1,252 @@
+<nav id="main-nav">
+  <div class="toggle-nav">
+    <i class="fa fa-bars sidebar-bar"></i>
+  </div>
+  <!-- Sample menu definition -->
+  <ul id="main-menu" class="sm pixelstrap sm-horizontal">
+    <li>
+      <div class="mobile-back text-right">
+        Back<i class="fa fa-angle-right pl-2" aria-hidden="true"></i>
+      </div>
+    </li>
+    <li><a [routerLink]="'/home/one'">Home</a>
+    </li>
+    <li class="mega">
+      <a [routerLink]="'/home/left-sidebar/collection/all'">features
+        <div class="lable-nav">new</div>
+      </a>
+      <ul class="mega-menu feature-menu">
+        <li>
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-4">
+                <a [routerLink]="'/blog/left-sidebar'">
+                  <img src="assets/images/feature/blog-page.jpg" alt="">
+                  <h6>blog(left-sidebar)</h6>
+                </a>
+              </div>
+              <div class="col-xl-4">
+                <a [routerLink]="'/blog/right-sidebar'">
+                  <img src="assets/images/feature/blog(right-sidebar).jpg" alt="">
+                  <h6>blog(right-sidebar)</h6>
+              </a>
+              </div>
+              <div class="col-xl-4">
+                <a [routerLink]="'/blog/details'">
+                  <img src="assets/images/feature/blog-detail.jpg" alt="">
+                  <h6>blog detail</h6>
+              </a>
+              </div>
+              <div class="col-xl-4">
+                <a [routerLink]="'/home/left-sidebar/collection/all'">
+                  <img src="assets/images/feature/category-page.jpg" alt="">
+                  <h6>category(left-sidebar)</h6>
+              </a>
+              </div>
+              <div class="col-xl-4">
+                <a [routerLink]="'/home/right-sidebar/collection/all'">
+                  <img src="assets/images/feature/category-page(right).jpg" alt="">
+                  <h6>category(right-sidebar)</h6>
+              </a>
+              </div>
+              <div class="col-xl-4">
+                <a [routerLink]="'/home/no-sidebar/collection/all'">
+                  <img src="assets/images/feature/category-page(no-sidebar).jpg" alt="">
+                  <h6>category(no sidebar)</h6>
+              </a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li class="mega"><a [routerLink]="'/home/left-sidebar/product/1'">products</a>
+      <ul class="mega-menu feature-menu product-menu">
+        <li>
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-3">
+                <a [routerLink]="'/home/left-sidebar/product/1'">
+                  <img src="assets/images/feature/product-page(left-sidebar).jpg" alt="">
+                  <h6>left sidebar</h6>
+              </a>
+              </div>
+              <div class="col-xl-3">
+                <a [routerLink]="'/home/right-sidebar/product/1'">
+                  <img src="assets/images/feature/product-page(right-sidebar).jpg" alt="">
+                  <h6>right sidebar</h6>
+              </a>
+              </div>
+              <div class="col-xl-3">
+                <a [routerLink]="'/home/no-sidebar/product/1'">
+                  <img src="assets/images/feature/product-page(no-sidebar).jpg" alt="">
+                  <h6>no sidebar</h6>
+              </a>
+              </div>
+              <div class="col-xl-3">
+                <a [routerLink]="'/home/col-left/product/1'">
+                  <img src="assets/images/feature/product-page(3-col-left).jpg" alt="">
+                  <h6>3 col-thumbnail left</h6>
+              </a>
+              </div>
+              <div class="col-xl-3">
+                <a [routerLink]="'/home/col-right/product/1'">
+                  <img src="assets/images/feature/product-page(3-col-right).jpg" alt="">
+                  <h6>3 col-thumbnail right</h6>
+                </a>
+              </div>
+              <div class="col-xl-3">
+                <a [routerLink]="'/home/column/product/1'">
+                  <img src="assets/images/feature/product-page(3-column).jpg" alt="">
+                  <h6>thumbnail below</h6>
+              </a>
+              </div>
+              <div class="col-xl-3">
+                <a [routerLink]="'/home/accordian/product/1'">
+                  <img src="assets/images/feature/product-page(accordian).jpg" alt="">
+                  <h6>accordian details</h6>
+              </a>
+              </div>
+              <div class="col-xl-3">
+                <a [routerLink]="'/home/left-image/product/1'">
+                  <img src="assets/images/feature/product-page(left-image).jpg" alt="">
+                  <h6>thumbnail left</h6>
+              </a>
+              </div>
+              <div class="col-xl-3">
+                <a [routerLink]="'/home/right-image/product/1'">
+                  <img src="assets/images/feature/product-page(right-image).jpg" alt="">
+                  <h6>thumbnail-right</h6>
+              </a>
+              </div>
+              <div class="col-xl-3">
+                <a [routerLink]="'/home/vertical/product/1'">
+                  <img src="assets/images/feature/product-page(vertical-tab).jpg" alt="">
+                  <h6>vertical tab</h6>
+              </a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li><a [routerLink]="'/pages/about-us'">pages</a>
+      <ul>
+        <li><a [routerLink]="'/pages/about-us'">about us</a></li>
+        <li><a [routerLink]="'/pages/404'">404</a></li>
+        <li><a [routerLink]="'/pages/lookbook'">lookbook</a></li>
+        <li><a [routerLink]="'/pages/login'">login</a></li>
+        <li><a [routerLink]="'/pages/register'">register</a></li>
+        <li><a [routerLink]="'/pages/search'">search</a></li>
+        <li><a [routerLink]="'/pages/wishlist'">wishlist</a></li>
+        <li><a [routerLink]="'/pages/cart'">cart</a></li>
+        <li><a [routerLink]="'/pages/collection'">collection</a></li>
+        <li><a [routerLink]="'/pages/forgetpassword'">forget password</a></li>
+        <li><a [routerLink]="'/pages/contact'">contact</a></li>
+        <li><a [routerLink]="'/pages/checkout'">checkout</a></li>
+        <li><a [routerLink]="'/pages/compare'">compare</a></li>
+        <li><a [routerLink]="'/pages/order-success'">order-success</a></li>
+        <li><a [routerLink]="'/pages/dashboard'">Dashboard</a></li>
+        <li><a [routerLink]="'/pages/faq'">FAQ</a></li>
+      </ul>
+    </li>
+    <li class="mega"><a [routerLink]="'/home/left-sidebar/collection/all'">Mega Menu</a>
+      <ul class="mega-menu full-mega-menu" id="mega-menu">
+        <li>
+          <div class="container">
+            <div class="row">
+              <div class="col mega-box">
+                <div class="link-section">
+                  <div class="menu-title"><h5>mens's fashion</h5>
+                  </div>
+                  <div class="menu-content">
+                    <ul>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">sports wear</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">top</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">bottom</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">ethic wear</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">sports wear</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">shirts</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col mega-box">
+                <div class="link-section">
+                  <div class="menu-title"><h5>women's fashion</h5>
+                  </div>
+                  <div class="menu-content">
+                    <ul>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">dresses</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">skirts</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">westarn wear</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">ethic wear</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">sport wear</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">bottom wear</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col mega-box">
+                <div class="link-section">
+                  <div class="menu-title"><h5>kids's fashion</h5>
+                  </div>
+                  <div class="menu-content">
+                    <ul>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">sports wear</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">ethic wear</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">sports wear</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">top</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">bottom</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">ethic wear</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col mega-box">
+                <div class="link-section">
+                  <div class="menu-title"><h5>Accessories</h5>
+                  </div>
+                  <div class="menu-content">
+                    <ul>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">fashion jewellery</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">caps and hats</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">precious jewellery</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">necklaces</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">earrings</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">rings & wrist wear</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col mega-box">
+                <div class="link-section">
+                  <div class="menu-title"><h5>men's accessories</h5>
+                  </div>
+                  <div class="menu-content">
+                    <ul>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">ties</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">cufflinks</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">pockets squares</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">helmets</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">scarves</a></li>
+                      <li><a [routerLink]="'/home/left-sidebar/collection/all'">phone cases</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row banner-padding">
+            <div class="col-xl-6">
+              <a [routerLink]="'/home/left-sidebar/collection/all'" class="mega-menu-banner"><img src="assets/images/mega-menu/1.jpg" class="img-fluid d-none d-xl-block " alt=""></a>
+            </div>
+            <div class="col-xl-6">
+              <a [routerLink]="'/home/left-sidebar/collection/all'" class="mega-menu-banner"><img src="assets/images/mega-menu/2.jpg" class="img-fluid d-none d-xl-block" alt=""></a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
